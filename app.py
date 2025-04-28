@@ -10,17 +10,18 @@ from bson import ObjectId
 import os
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
+
+# Çevre değişkenlerinden hassas bilgileri al (Railway'de ayarlanacak)
+mongo_uri = os.environ.get('MONGO_URI', "mongodb+srv://mhmmdgymn:suskun1200@cluster0.uquyz.mongodb.net/WordGame?retryWrites=true&w=majority&tls=true&tlsAllowInvalidCertificates=true")
+sender_email = os.environ.get('EMAIL_ADDRESS', "kelimeoyunu.heyecnibastir@gmail.com")
+sender_password = os.environ.get('EMAIL_PASSWORD', "qnon exwe vodo ducp")
 
 # MongoDB bağlantısı
-client = MongoClient("mongodb+srv://mhmmdgymn:suskun1200@cluster0.uquyz.mongodb.net/WordGame?retryWrites=true&w=majority&tls=true&tlsAllowInvalidCertificates=true")
+client = MongoClient(mongo_uri)
 db = client.WordGame
 play_collection = db.play
 words_collection = db.words
-
-# E-posta ayarları
-sender_email = "kelimeoyunu.heyecnibastir@gmail.com"
-sender_password = "qnon exwe vodo ducp"
 
 verification_codes = {}  # Doğrulama kodlarını geçici olarak saklamak için
 

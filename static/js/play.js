@@ -13,10 +13,15 @@ let challengeTimer = null;
 let challengeTimeLeft = 30;
 let isChallengeModeActive = false;
 
+// API URL'sini tanımla - local ve production için
+const API_URL = window.location.hostname === 'localhost' 
+    ? 'http://localhost:5000' 
+    : 'https://web-production-5639b.up.railway.app';
+
 // Veritabanından kelimeleri yükle
 async function loadWordsFromDatabase() {
     try {
-        const response = await fetch('http://localhost:5000/words');
+        const response = await fetch(`${API_URL}/words`);
         const words = await response.json();
         
         // Kelimeleri uzunluklarına göre grupla

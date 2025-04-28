@@ -1,3 +1,8 @@
+// API URL'sini tanımla - local ve production için
+const API_URL = window.location.hostname === 'localhost' 
+    ? 'http://localhost:5000' 
+    : 'https://web-production-5639b.up.railway.app';
+
 // DOM yüklendikten sonra çalışacak şekilde düzenleyelim
 document.addEventListener('DOMContentLoaded', function() {
     // Form event listeners
@@ -27,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const password = document.getElementById('password').value;
 
         try {
-            const response = await fetch('http://localhost:5000/login', {
+            const response = await fetch(`${API_URL}/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -82,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         try {
-            const response = await fetch('http://localhost:5000/send-verification', {
+            const response = await fetch(`${API_URL}/send-verification`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -115,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         try {
-            const response = await fetch('http://localhost:5000/check-email', {
+            const response = await fetch(`${API_URL}/check-email`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -158,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         try {
-            const response = await fetch('http://localhost:5000/reset-password', {
+            const response = await fetch(`${API_URL}/reset-password`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -223,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         try {
-            const response = await fetch('http://localhost:5000/register', {
+            const response = await fetch(`${API_URL}/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
