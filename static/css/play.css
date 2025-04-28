@@ -43,6 +43,8 @@ h1 {
     text-transform: uppercase;
     background-color: #f8f8f8;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: #000; /* Metin rengi siyah yapıldı */
+    font-weight: bold; /* Metni daha belirgin yapmak için */
 }
 
 .letter-box:focus {
@@ -77,6 +79,7 @@ h1 {
 .game-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 1rem;
     margin-bottom: 1rem;
     background-color: #fff;
@@ -134,4 +137,23 @@ h1 {
 .challenge-btn:disabled {
     background-color: #ffcccc;
     cursor: not-allowed;
-} 
+}
+
+/* Geri butonu için stil */
+.back-btn {
+    background-color: #764ba2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.back-btn:hover {
+    background-color: #5d3b82;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}

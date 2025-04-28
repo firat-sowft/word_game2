@@ -300,7 +300,17 @@ function endChallengeMode(isSuccess) {
     document.getElementById('challenge-btn').textContent = '30';
 }
 
-// Event listener'ları güncelleyelim
+// Geri butonunun fonksiyonu
+function goToGamePage() {
+    // Kullanıcıya oyundan çıkmak istediğini sor
+    if (confirm('Oyundan çıkmak istediğinize emin misiniz? İlerlemeniz kaybolacaktır.')) {
+        // Eğer onaylarsa, oyunu sonlandır ve game.html sayfasına yönlendir
+        clearInterval(mainTimer);
+        if (challengeTimer) clearInterval(challengeTimer);
+        window.location.href = 'game.html';
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('get-letter-btn').addEventListener('click', getRandomLetter);
     document.getElementById('challenge-btn').addEventListener('click', startChallengeMode);
