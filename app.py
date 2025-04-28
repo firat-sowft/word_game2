@@ -6,7 +6,7 @@ import random
 import string
 from flask_cors import CORS
 import re
-from pymongo.bson import ObjectId  # BSON import değiştirildi
+from bson.objectid import ObjectId  # BSON import düzeltildi
 import os
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
